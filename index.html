@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BOOK A SHOW</title>
+        <style>
+body{
+    background-color: #00CED1;
+    font-family : monospace;
+    color : #0C1584;
+}
+h1{
+    color :#0000FF;
+    text-align : center;
+    text-transform : uppercase;
+}
+table{
+    padding-left :10%;
+    padding-right :10%;
+}
+        </style>
+
+
+      </head>
+    <body>
+
+<h1>book a show - ticket booking</h1>
+<form>
+<table>
+    <tr>
+      <td>
+        Name
+    </td>
+        <td>
+            <input type="name" id="name" placeholder="Enter the Name" required onkeyup="this.value = this.value.replace(/[^a-z]/, '')" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+          Movie Name
+      </td>
+          <td>
+
+        <input list="movies" name="movies" id="movie" placeholder="Movie Name" required>
+        <datalist id="movies">
+          <option value="Irada">
+          <option value="Rangoon">
+          <option value="Logan">
+          <option value="Fist fight">
+        </datalist>
+
+          </td>
+      </tr>
+      <tr>
+        <td>
+          Circle
+      </td>
+          <td>
+              
+
+        <input list="circles" name="circles" id="circle" required>
+        <datalist id="circles">
+          <option value="Silver">
+          <option value="Gold">
+          <option value="Platinum">
+        </datalist>
+
+          </td>
+      </tr>
+      <tr>
+        <td>
+          Phone No
+      </td>
+          <td>
+              <input type="number" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==10) return false;" placeholder="Enter Mobile Number" required>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          Show date and time
+      </td>
+          <td>
+              <input type="datetime-local" id="time"  required>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          No of Adults
+      </td>
+          <td>
+              <input type="number" id="no_of_adults" min="1" max="10" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==2) return false;" required>
+          </td>
+      </tr>
+        
+      <tr>
+        <td>
+          No of Childrens
+      </td>
+          <td>
+              <input type="number" id="no_of_childrens" min="0" max="5" pattern="/^-?\d+\.?\d*$/" onKeyPress="if(this.value.length==1) return false;" required>
+          </td>
+      </tr>
+      
+      <tr>
+        <td>
+          <input type="submit" value="Book My Show" onclick=bookmyshow()>
+      </td>
+          <td>
+              <input type="reset" id="reset">
+          </td>
+      </tr>
+      
+
+</table>
+</form>
+
+    <script>
+function bookmyshow() {
+  // Get the input field values
+  var name = document.getElementById('name').value;
+  var movie = document.getElementById('movie').value;
+  var circle = document.getElementById('circle').value;
+  var phone = document.getElementById('phone').value;
+  var time = document.getElementById('time').value;
+  var adults = document.getElementById('no_of_adults').value;
+  var childrens = document.getElementById('no_of_childrens').value;
+
+  // Check if any of the fields are empty
+  if (
+            name === '' ||
+            movie === '' ||
+            circle === '' ||
+            phone === '' ||
+            time === '' ||
+            adults === '' ||
+            childrens === ''
+        ) {
+            alert('Please fill in all the required fields.');
+        } else {
+            alert('Booking Successful');
+        }
+      }
+    </script>
+    </body>
+</html>
